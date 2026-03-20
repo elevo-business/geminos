@@ -59,34 +59,34 @@ h3{font-size:clamp(1.1rem,1.8vw,1.3rem);line-height:1.3}
 .scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue-deep));z-index:10000;width:0;transition:width .08s linear}
 
 /* FLOATING ORBS — Hero + Sections */
-.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px);opacity:0;animation:orbIn 1.2s ease forwards}
-.orb-1{width:400px;height:400px;background:rgba(37,99,235,.06);top:-100px;right:-120px;animation-delay:.2s}
-.orb-2{width:320px;height:320px;background:rgba(37,99,235,.04);bottom:-80px;left:-100px;animation-delay:.5s}
-.orb-3{width:240px;height:240px;background:rgba(59,130,246,.05);top:50%;right:10%;animation-delay:.8s}
+.orb{position:absolute;border-radius:50%;pointer-events:none;opacity:0;animation:orbIn 1.2s ease forwards}
+.orb-1{width:500px;height:500px;background:rgba(37,99,235,.10);filter:blur(100px);top:-120px;right:-140px;animation-delay:.2s}
+.orb-2{width:400px;height:400px;background:rgba(37,99,235,.08);filter:blur(90px);bottom:-100px;left:-120px;animation-delay:.5s}
+.orb-3{width:300px;height:300px;background:rgba(59,130,246,.07);filter:blur(80px);top:50%;right:10%;animation-delay:.8s}
 @keyframes orbIn{to{opacity:1}}
-@keyframes orbFloat{0%,100%{transform:translate(0,0)}25%{transform:translate(12px,-18px)}50%{transform:translate(-8px,14px)}75%{transform:translate(16px,8px)}}
-.orb.animate{animation:orbIn 1.2s ease forwards,orbFloat 20s ease-in-out infinite}
+@keyframes orbFloat{0%,100%{transform:translate(0,0)}25%{transform:translate(15px,-22px)}50%{transform:translate(-10px,18px)}75%{transform:translate(20px,10px)}}
+.orb.animate{animation:orbIn 1.2s ease forwards,orbFloat 18s ease-in-out infinite}
 .orb-1.animate{animation-delay:.2s,0s}
 .orb-2.animate{animation-delay:.5s,3s}
 .orb-3.animate{animation-delay:.8s,6s}
 
 /* MOUSE GLOW (Desktop only) */
-.mouse-glow{position:fixed;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.04),transparent 70%);pointer-events:none;z-index:1;transform:translate(-50%,-50%);transition:left .3s ease,top .3s ease;display:none}
+.mouse-glow{position:fixed;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.07),transparent 65%);pointer-events:none;z-index:1;transform:translate(-50%,-50%);transition:left .15s ease,top .15s ease;display:none}
 @media(hover:hover){.mouse-glow{display:block}}
 
 /* GRAIN OVERLAY for dark sections */
 .grain::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1}
 
 /* FLOATING GEOMETRIC DECO */
-.geo{position:absolute;pointer-events:none;opacity:.04;z-index:0}
-.geo-ring{width:180px;height:180px;border:2px solid var(--blue);border-radius:50%;animation:geoSpin 40s linear infinite}
-.geo-diamond{width:80px;height:80px;border:1.5px solid var(--blue);transform:rotate(45deg);animation:geoFloat 16s ease-in-out infinite}
-.geo-cross{width:40px;height:40px;position:relative}
+.geo{position:absolute;pointer-events:none;opacity:.08;z-index:0}
+.geo-ring{width:220px;height:220px;border:2px solid var(--blue);border-radius:50%;animation:geoSpin 40s linear infinite}
+.geo-diamond{width:100px;height:100px;border:1.5px solid var(--blue);transform:rotate(45deg);animation:geoFloat 16s ease-in-out infinite}
+.geo-cross{width:48px;height:48px;position:relative}
 .geo-cross::before,.geo-cross::after{content:'';position:absolute;background:var(--blue)}
 .geo-cross::before{width:100%;height:2px;top:50%;transform:translateY(-50%)}
 .geo-cross::after{width:2px;height:100%;left:50%;transform:translateX(-50%)}
 @keyframes geoSpin{to{transform:rotate(360deg)}}
-@keyframes geoFloat{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(10px,-14px)}}
+@keyframes geoFloat{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(12px,-16px)}}
 
 /* HEADER */
 .header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:all .3s;background:transparent}
@@ -161,7 +161,7 @@ section.editorial{padding:88px 0;background:var(--surface);position:relative;ove
 @media(max-width:700px){.reasons{grid-template-columns:1fr}}
 
 /* ABOUT */
-.about{padding:88px 0;background:var(--canvas)}
+.about{padding:88px 0;background:var(--canvas);position:relative;overflow:hidden}
 .about-layout{display:grid;grid-template-columns:5fr 6fr;gap:80px;align-items:center}
 .about-photo{position:relative}
 .about-photo img{border-radius:var(--r-m);width:100%;aspect-ratio:4/5;object-fit:cover}
@@ -180,8 +180,8 @@ section.editorial{padding:88px 0;background:var(--surface);position:relative;ove
 /* SETUP */
 .setup{padding:88px 0;background:var(--surface)}
 .setup-banner{background:var(--ink);color:#fff;border-radius:var(--r-l);padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;overflow:hidden}
-.setup-banner::before{content:'';position:absolute;top:-40%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.15),transparent 70%);pointer-events:none;animation:orbFloat 18s ease-in-out infinite}
-.setup-banner::after{content:'';position:absolute;bottom:-30%;left:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(59,130,246,.1),transparent 70%);pointer-events:none;animation:orbFloat 22s ease-in-out infinite 4s}
+.setup-banner::before{content:'';position:absolute;top:-40%;right:-10%;width:450px;height:450px;background:radial-gradient(circle,rgba(37,99,235,.25),transparent 70%);pointer-events:none;animation:orbFloat 18s ease-in-out infinite}
+.setup-banner::after{content:'';position:absolute;bottom:-30%;left:-5%;width:350px;height:350px;background:radial-gradient(circle,rgba(59,130,246,.15),transparent 70%);pointer-events:none;animation:orbFloat 22s ease-in-out infinite 4s}
 .setup-banner h2{color:#fff;margin-top:10px;margin-bottom:16px}
 .setup-banner .label{color:var(--blue-soft)}
 .setup-banner>div:first-child p{color:rgba(255,255,255,.6);margin-bottom:24px;font-size:.95rem}
@@ -201,7 +201,7 @@ section.editorial{padding:88px 0;background:var(--surface);position:relative;ove
 @media(max-width:900px){.setup-banner{grid-template-columns:1fr;padding:36px 28px}}
 
 /* PRICING */
-.pricing{padding:88px 0;background:var(--canvas)}
+.pricing{padding:88px 0;background:var(--canvas);position:relative;overflow:hidden}
 .pr-header{text-align:center;margin-bottom:40px}
 .pr-header h2{margin-top:10px}
 .tabs{display:flex;justify-content:center;gap:4px;margin-bottom:40px;background:var(--wash);border-radius:var(--r-pill);padding:4px;max-width:480px;margin-left:auto;margin-right:auto}
@@ -224,7 +224,7 @@ section.editorial{padding:88px 0;background:var(--surface);position:relative;ove
 @media(max-width:700px){.pcards{grid-template-columns:1fr;max-width:380px}}
 
 /* TESTIMONIALS — Editorial pull-quotes */
-.testi{padding:88px 0;background:var(--surface)}
+.testi{padding:88px 0;background:var(--surface);position:relative;overflow:hidden}
 .testi-header{text-align:center;margin-bottom:56px}
 .testi-header h2{margin-top:10px}
 
@@ -365,6 +365,7 @@ section.editorial{padding:88px 0;background:var(--surface);position:relative;ove
   <!-- Geometric Deco -->
   <div class="geo geo-ring" style="top:15%;left:3%"></div>
   <div class="geo geo-diamond" style="bottom:20%;right:4%"></div>
+  <div class="geo geo-cross" style="top:40%;right:18%"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-content">
@@ -416,7 +417,8 @@ section.editorial{padding:88px 0;background:var(--surface);position:relative;ove
 
 <!-- WARUM LINKEDIN -->
 <section class="editorial" id="warum-linkedin">
-  <div class="orb" style="width:280px;height:280px;background:rgba(37,99,235,.035);top:20%;right:-80px;filter:blur(60px);opacity:1;animation:orbFloat 24s ease-in-out infinite"></div>
+  <div class="orb" style="width:360px;height:360px;background:rgba(37,99,235,.08);top:10%;right:-100px;filter:blur(80px);opacity:1;animation:orbFloat 22s ease-in-out infinite"></div>
+  <div class="geo geo-cross" style="bottom:15%;left:5%;opacity:.06"></div>
   <div class="wrap">
     <div class="ed-header reveal">
       <div class="label">Warum LinkedIn</div>
@@ -433,10 +435,12 @@ section.editorial{padding:88px 0;background:var(--surface);position:relative;ove
 
 <!-- WARUM GEMINOS -->
 <section class="about" id="warum-geminos">
+  <div class="orb" style="width:320px;height:320px;background:rgba(37,99,235,.06);bottom:-60px;right:-80px;filter:blur(80px);opacity:1;animation:orbFloat 20s ease-in-out infinite 5s"></div>
+  <div class="geo geo-diamond" style="top:12%;right:6%;opacity:.06;animation-delay:-8s"></div>
   <div class="wrap">
     <div class="about-layout">
       <div class="about-photo reveal">
-        <img src="https://www.geminos.info/wp-content/uploads/slider/cache/ca3e589d03465bd68a1f4b41589984b0/geminos_mit-21.jpg" alt="Amelie und Leena Kaijo" loading="lazy">
+        <img src="https://www.geminos.info/wp-content/uploads/2025/03/geminos_mit-21.jpg" alt="Amelie und Leena Kaijo" loading="lazy">
         <div class="about-tag"><i data-lucide="award"></i> Top 100 weltweit auf LinkedIn</div>
       </div>
       <div class="about-prose reveal">
@@ -488,6 +492,8 @@ section.editorial{padding:88px 0;background:var(--surface);position:relative;ove
 
 <!-- PRICING -->
 <section class="pricing" id="pakete">
+  <div class="orb" style="width:300px;height:300px;background:rgba(37,99,235,.06);top:-50px;left:-80px;filter:blur(70px);opacity:1;animation:orbFloat 24s ease-in-out infinite 3s"></div>
+  <div class="geo geo-ring" style="bottom:10%;right:3%;opacity:.05;width:160px;height:160px"></div>
   <div class="wrap">
     <div class="pr-header reveal"><div class="label">Unsere Pakete</div><h2>LinkedIn Content, der wirkt.</h2></div>
     <div class="tabs reveal" id="pricingTabs">
@@ -514,6 +520,7 @@ section.editorial{padding:88px 0;background:var(--surface);position:relative;ove
 
 <!-- TESTIMONIALS -->
 <section class="testi" id="kunden">
+  <div class="orb" style="width:350px;height:350px;background:rgba(37,99,235,.06);top:20%;right:-100px;filter:blur(80px);opacity:1;animation:orbFloat 22s ease-in-out infinite 1s"></div>
   <div class="wrap">
     <div class="testi-header reveal"><div class="label">Kundenstimmen</div><h2>Was unsere Kunden sagen.</h2><div class="motif center"><i></i><i></i></div></div>
 
@@ -579,7 +586,7 @@ section.editorial{padding:88px 0;background:var(--surface);position:relative;ove
 
 <!-- KONTAKT -->
 <section class="contact" id="kontakt">
-  <div class="orb" style="width:350px;height:350px;background:rgba(37,99,235,.04);top:-80px;left:-100px;filter:blur(70px);opacity:1;animation:orbFloat 20s ease-in-out infinite 2s"></div>
+  <div class="orb" style="width:420px;height:420px;background:rgba(37,99,235,.08);top:-100px;left:-120px;filter:blur(90px);opacity:1;animation:orbFloat 18s ease-in-out infinite 2s"></div>
   <div class="wrap">
     <div class="contact-intro reveal">
       <div class="label">Letzte Seite</div>
